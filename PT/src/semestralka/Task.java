@@ -40,5 +40,34 @@ public class Task {
 		return "time: "+time+" fromRouter: "+fromRouter.getName()+ " toRouter: "+toRouter.getName()+" Size: "+size;
 				
 	}
+
+	/**
+	 * @return the time
+	 */
+	public LocalTime getTime() {
+		return time;
+	}
+
+	/**
+	 * @return the fromRouter
+	 */
+	public Router getFromRouter() {
+		return fromRouter;
+	}
+
+	/**
+	 * @return the toRouter
+	 */
+	public Router getToRouter() {
+		return toRouter;
+	}
+
+	/**
+	 * @return the size
+	 */
+	public int getSize() {
+		return size;
+	}
+	
 	
 }

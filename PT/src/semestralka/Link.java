@@ -43,7 +43,7 @@ public class Link {
 	 */
 	@Override
 	public String toString(){
-		return ("From Router: "+fromRouter.getName()+" to Router: "+toRouter.getName()+" bandwidth:"+bandwidth+ " reliability:" +reliability);
+		return ("From Router: "+fromRouter.getName()+" neightbors: "+fromRouter.getNeighbours()+" to Router: "+toRouter.getName()+" neightbors: "+toRouter.getNeighbours()+"bandwidth:"+bandwidth+ " reliability:" +reliability);
 	}
 
 	/**
@@ -100,6 +100,10 @@ public class Link {
 	 */
 	public void setReliability(double reliability) {
 		this.reliability = reliability;
+	}
+	
+	public int maxBandwidthWithoutFail() {
+		return (int)(this.bandwidth*this.reliability);
 	}
 	
 	

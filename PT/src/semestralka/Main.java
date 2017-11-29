@@ -13,14 +13,18 @@ public class Main {
 		//vytvoření readeru
 		Reader reader = new Reader();
 		
+		System.out.println("Načítám topologii");
 		//vytvoření topologie
 		Topology topology = reader.readTopology("links.txt");
 		
+		System.out.println("Načteno");
 		//vypsání topologie
-		topology.printTopology();
+	//	topology.printTopology();
 		
 		//čtení simulace
 		reader.readSimulate("simulate.txt");
+		
+		//topology.printTopology();
 		
 	}
 
