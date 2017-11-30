@@ -6,10 +6,13 @@ public class Packet {
 	private double size;
 	private List<Router> path;
 	private Router actualRouter;
+	private int pathIndex = 0;
 	
 	public Packet(double size,List<Router> path) {
 		this.size = size;
 		this.path = path;
+		this.actualRouter = path.get(pathIndex);
+		//this.pathIndex++;
 	}
 	
 	public Packet splitPacket(){
@@ -41,4 +44,33 @@ public class Packet {
 	public void setActualRouter(Router actualRouter){
 		this.actualRouter = actualRouter;
 	}
+	
+	public void moveNext() {
+		pathIndex++;
+		actualRouter = path.get(pathIndex);
+		//pathIndex++;
+	}
+	
+	public boolean isAtDestination() {
+		if(actualRouter.equals(path.get(path.size()-1))) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Packet [size=" + size + ", path=" + path + ", actualRouter=" + actualRouter + ", pathIndex=" + pathIndex
+				+ "path size: "+(path.size()-1)+"]";
+	}
+	
+
+	
+	
+	
+	
 }

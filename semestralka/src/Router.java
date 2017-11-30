@@ -128,6 +128,10 @@ public class Router implements Comparable {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	public SmartStack getStack() {
+		return this.stack;
+	}
 
    
 	
