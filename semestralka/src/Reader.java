@@ -66,8 +66,9 @@ public class Reader {
 	 * @param inputFile vstupní soubor
 	 */
 	public void readSimulate(String inputFile){
-		
-		List<Router> routers = new ArrayList<Router>();
+		Router routerFrom;
+		Router routerTo;
+		List<Task> taskList = new ArrayList<Task>();
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(inputFile))) {
 		    String line;
@@ -76,31 +77,23 @@ public class Reader {
 			    	String[] data = line.split("-");
 			    	String[] timeArray = data[0].split(":"); //for create time		    	
 			    	LocalTime time = LocalTime.of(Integer.parseInt(timeArray[0]),Integer.parseInt(timeArray[1]));
-			    	Router routerFrom = new Router(data[1].trim());
-			    	Router routerTo = new Router(data[2].trim());
 			    	
-			    	
-			    	Router check = topology.checkRouterName(routerFrom);
-			    	if(check != null) {
-			    		routerFrom = check;
-			    	}
-			    	
-			    	check = topology.checkRouterName(routerTo);
-			    	if(check != null) {
-			    		routerTo = check;
-			    	}
-			    	
-			    	
-			    	
-			    	
+			    	routerFrom = topology.getRouter(data[1].trim());
+				    routerTo = topology.getRouter(data[2].trim());
+				    	
+				    if((routerFrom == null)||(routerTo==null)){
+						System.out.println("Router " + data[1].trim() + " nebo " + data[2].trim() + " neexistuje v topologii ");
+						continue;
+				    }
+			    	 	
 			    	int size = Integer.parseInt(data[3]);
 			    	
 			    	Task task = new Task(time,routerFrom,routerTo,size);
-			//    	System.out.println("zadáno: "+task.toString());
-			    	System.out.println("simulace");
-			    	Simulate sim = new Simulate(task,topology);
-			  //  	System.out.println("zpracovavam: "+sim.toString());
+			    	taskList.add(task);
+			    	
 		    }
+		    System.out.println("simulace");
+	    	Simulate sim = new Simulate(taskList,topology);
 		
 		}catch(Exception ex){
 			System.out.println("Špatně formátovaný vstupní soubor pro simulaci");

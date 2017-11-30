@@ -15,17 +15,17 @@ public class Main {
 		
 		System.out.println("Načítám topologii");
 		//vytvoření topologie
-		Topology topology = reader.readTopology("links.txt");
+		Topology topology = reader.readTopology("links_.txt");
 		
 		System.out.println("Načteno");
 		//vypsání topologie
 	//	topology.printTopology();
 		
 		//čtení simulace
-		reader.readSimulate("simulate.txt");
+		reader.readSimulate("simulate_.txt");
 		
 		//topology.printTopology();
-		
+	
 	}
 
 }
