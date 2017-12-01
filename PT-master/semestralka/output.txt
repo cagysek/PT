@@ -1,0 +1,30 @@
+[Packet [size=0.0, path=[F, G, H, A], actualRouter=F, pathIndex=0path size: 3]]
+F -> G
+=============================================
+[Packet [size=0.0, path=[F, G, H, A], actualRouter=G, pathIndex=1path size: 3], Packet [size=1.0, path=[B, G, F], actualRouter=B, pathIndex=0path size: 2]]
+G -> H
+=============================================
+B -> G
+=============================================
+[Packet [size=0.0, path=[F, G, H, A], actualRouter=H, pathIndex=2path size: 3], Packet [size=1.0, path=[B, G, F], actualRouter=G, pathIndex=1path size: 2], Packet [size=2.0, path=[H, G, F, E, D], actualRouter=H, pathIndex=0path size: 4]]
+H -> A
+END
+=============================================
+G -> F
+END
+=============================================
+H -> G
+=============================================
+[Packet [size=2.0, path=[H, G, F, E, D], actualRouter=G, pathIndex=1path size: 4], Packet [size=3.0, path=[A, B], actualRouter=A, pathIndex=0path size: 1]]
+G -> F
+=============================================
+A -> B
+END
+=============================================
+[Packet [size=2.0, path=[H, G, F, E, D], actualRouter=F, pathIndex=2path size: 4]]
+F -> E
+=============================================
+[Packet [size=2.0, path=[H, G, F, E, D], actualRouter=E, pathIndex=3path size: 4]]
+E -> D
+END
+=============================================
