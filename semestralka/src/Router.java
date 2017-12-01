@@ -5,7 +5,7 @@ import java.util.*;
  * @author cagy
  *
  */
-public class Router implements Comparable {
+public class Router implements Comparable<Object> {
 	/** Jmeno routeru */
 	private String name;
 	
@@ -13,7 +13,8 @@ public class Router implements Comparable {
 	private SmartStack stack;
 	
 	private List<Router> neighbors;
-	
+	private Packet packet;
+	private boolean occupied = false;
 	private double distance;
 	private double minDistance = Double.POSITIVE_INFINITY;
 	private Router previous;
@@ -131,6 +132,23 @@ public class Router implements Comparable {
 	
 	public SmartStack getStack() {
 		return this.stack;
+	}
+
+	public boolean isOccupied() {
+		return occupied;
+	}
+
+	public void setOccupied(boolean occupied) {
+		this.occupied = occupied;
+	}
+
+	public Packet getPacket() {
+		return packet;
+	}
+
+	public void setPacket(Packet packet) {
+		this.packet = packet;
+		this.occupied = true;
 	}
 
    

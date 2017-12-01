@@ -1,8 +1,6 @@
 
 
-import java.awt.Color;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**************
  * Instance třídy {@code Topology} vytvoří topologii sítě

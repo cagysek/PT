@@ -28,7 +28,7 @@ public class Simulate {
 	
 	private Topology topology;
 	
-	private List<Packet> runningPacket= new CopyOnWriteArrayList<>();
+	private List<Packet> runningPacketList= new CopyOnWriteArrayList<>();
 	
 	private int packetID = 0;
 	
@@ -63,16 +63,25 @@ public class Simulate {
 			
 	        List<Router> path = cPath.getShortestPathTo(task.getToRouter());
 	        
-	        Packet packet = new Packet(packetID, path);
-	        packetID++;
-	        runningPacket.add(packet);
+	        double maxSize = cPath.getMaxSize(path);
 	        
+	        
+	        Packet packet = new Packet(packetID, (double)task.getSize(), path);
+	        System.out.println(packet);
+	        
+	        List<Packet> packetList = packet.splitPacket(maxSize);
+	        
+	        for (Packet packet_ : packetList) {
+	        	runningPacketList.add(packet_);
+	        	packetID++;
+			}
+	             
 	       
 				makeStep();
 			
 		}
 		
-		while(runningPacket.size()>0) {
+		while(runningPacketList.size()>0) {
 			
 				makeStep();
 		}
@@ -83,19 +92,22 @@ public class Simulate {
 	private void makeStep(){
 		
 		
-		System.out.println(runningPacket);
-		log += runningPacket+"\n";
-		Iterator<Packet> it = runningPacket.iterator();
+		System.out.println(runningPacketList);
+		log += runningPacketList+"\n";
+		Iterator<Packet> it = runningPacketList.iterator();
 		while(it.hasNext()){
 			Packet packet = it.next();
+				System.out.print("Packet" + packet.getID() + ": ");
 				System.out.print(packet.getActualRouter()+" -> ");
 				log += packet.getActualRouter()+" -> ";
+				
 				packet.moveNext();
 				
 				System.out.println(packet.getActualRouter());
 				log += packet.getActualRouter()+"\n";
 				if(packet.isAtDestination() == true) {
-					runningPacket.removeIf(s -> s.equals(packet)); 
+					packet.getActualRouter().setOccupied(false);
+					runningPacketList.removeIf(s -> s.equals(packet)); 
 					System.out.println("END");
 					log +="END\n";
 				}

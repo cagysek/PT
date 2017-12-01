@@ -17,7 +17,7 @@ public class Reader {
 	 * @param inputFile vstupní soubor s topologií
 	 * @return topologie
 	 */
-	public Topology readTopology(String inputFile){
+	public void readTopology(String inputFile){
 		topology = new Topology();
 
 		try (BufferedReader br = new BufferedReader(new FileReader(inputFile))) {
@@ -58,7 +58,7 @@ public class Reader {
 			ex.printStackTrace();
 		}
 		
-		return topology;
+		//return topology;
 	}
 	
 	/**
@@ -80,7 +80,8 @@ public class Reader {
 			    	
 			    	routerFrom = topology.getRouter(data[1].trim());
 				    routerTo = topology.getRouter(data[2].trim());
-				    	
+				    
+				    				    
 				    if((routerFrom == null)||(routerTo==null)){
 						System.out.println("Router " + data[1].trim() + " nebo " + data[2].trim() + " neexistuje v topologii ");
 						continue;

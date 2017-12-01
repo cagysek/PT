@@ -15,7 +15,7 @@ public class Main {
 		
 		System.out.println("Načítám topologii");
 		//vytvoření topologie
-		Topology topology = reader.readTopology("links_.txt");
+		reader.readTopology("links_.txt");
 		
 		System.out.println("Načteno");
 		//vypsání topologie

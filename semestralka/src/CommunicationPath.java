@@ -35,10 +35,28 @@ public class CommunicationPath
     public List<Router> getShortestPathTo(Router target)
     {
         List<Router> path = new ArrayList<Router>();
+        path.add(new Router("targetUser"));
         for (Router router = target; router != null; router = router.getPrevious())
             path.add(router);
-
+        
+        path.add(new Router("sourceUser"));
         Collections.reverse(path);
+        
         return path;
+    }
+    
+    public double getMaxSize(List<Router> routerList){
+    	double tmp;
+    	double min = Double.MAX_VALUE;
+    	for (int i = 1; i < routerList.size()-2; i++) {
+			tmp = routerList.get(i).getBandwithToRouter(routerList.get(i+1));
+			if(tmp<min) min = tmp;
+					
+		}
+    	return min;
+    	
+    	
+		
+    	
     }
 }
