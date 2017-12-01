@@ -64,12 +64,24 @@ public class Packet {
 	
 	public void moveNext() {
 		if(path.get(pathIndex+1).isOccupied()){
-			return;
+			Router collisionRouter = path.get(pathIndex+1);
+			System.out.println("|||||||||||KOKOTI!: "+ actualRouter.getName() + " " + collisionRouter.getPacket().getNextRouter().getName()+"||||||||||");
+			if(this.actualRouter.getName().equals(collisionRouter.getPacket().getNextRouter().getName())){
+				this.actualRouter = nextRouter;
+				this.actualRouter.setPacket(collisionRouter.getPacket());
+				collisionRouter.setPacket(this);
+				collisionRouter = path.get(pathIndex);
+			}
+			else return;
 		}else {
+		actualRouter.setPacket(null);
 		actualRouter.setOccupied(false);
 		pathIndex++;
 		actualRouter = path.get(pathIndex);
 		actualRouter.setOccupied(true);
+		actualRouter.setPacket(this);
+		nextRouter = path.get(pathIndex+1);
+		
 		}
 	}
 	
@@ -106,7 +118,12 @@ public class Packet {
 	public void setNextRouter(Router nextRouter) {
 		this.nextRouter = nextRouter;
 	}
-	
+	public int getPathIndex(){
+		return this.pathIndex;
+	}
+	public void setPathIndex(int index){
+		this.pathIndex = index;
+	}
 
 	
 	

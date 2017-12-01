@@ -34,6 +34,8 @@ public class Simulate {
 	
 	private String log = "";
 	
+	private Packet lastPacket;
+	
 	
 	
 	/**
@@ -101,7 +103,10 @@ public class Simulate {
 				System.out.print(packet.getActualRouter()+" -> ");
 				log += packet.getActualRouter()+" -> ";
 				
+				//if(lastPacket)
 				packet.moveNext();
+				
+				lastPacket = packet;
 				
 				System.out.println(packet.getActualRouter());
 				log += packet.getActualRouter()+"\n";
