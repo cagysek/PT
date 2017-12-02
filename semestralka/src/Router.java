@@ -135,7 +135,10 @@ public class Router implements Comparable<Object> {
 	}
 
 	public boolean isOccupied() {
-		return occupied;
+		if(this.packet == null) {
+			return false;
+		}
+		else return true;
 	}
 
 	public void setOccupied(boolean occupied) {
@@ -148,7 +151,7 @@ public class Router implements Comparable<Object> {
 
 	public void setPacket(Packet packet) {
 		this.packet = packet;
-		this.occupied = true;
+		
 	}
 
    

@@ -67,8 +67,8 @@ public class Simulate {
 	        
 	        double maxSize = cPath.getMaxSize(path);
 	        
-	        
 	        Packet packet = new Packet(packetID, (double)task.getSize(), path);
+	        System.out.print("Načítám packet: ");
 	        System.out.println(packet);
 	        
 	        List<Packet> packetList = packet.splitPacket(maxSize);
@@ -77,7 +77,6 @@ public class Simulate {
 	        	runningPacketList.add(packet_);
 	        	packetID++;
 			}
-	             
 	       
 				makeStep();
 			
@@ -94,7 +93,7 @@ public class Simulate {
 	private void makeStep(){
 		
 		
-		System.out.println(runningPacketList);
+		//System.out.println(runningPacketList);
 		log += runningPacketList+"\n";
 		Iterator<Packet> it = runningPacketList.iterator();
 		while(it.hasNext()){
@@ -103,24 +102,25 @@ public class Simulate {
 				System.out.print(packet.getActualRouter()+" -> ");
 				log += packet.getActualRouter()+" -> ";
 				
-				//if(lastPacket)
 				packet.moveNext();
 				
-				lastPacket = packet;
+				//lastPacket = packet;
 				
 				System.out.println(packet.getActualRouter());
 				log += packet.getActualRouter()+"\n";
 				if(packet.isAtDestination() == true) {
 					packet.getActualRouter().setOccupied(false);
+					packet.getActualRouter().setPacket(null);
 					runningPacketList.removeIf(s -> s.equals(packet)); 
 					System.out.println("END");
 					log +="END\n";
 				}
-				System.out.println("=============================================");
-				log += "=============================================\n";
+				
+				
 		
 		}
-		
+		log += "=============================================\n";
+		System.out.println("=============================================");
 			
 	}
 	

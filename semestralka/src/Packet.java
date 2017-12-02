@@ -27,6 +27,7 @@ public class Packet {
 		List<Packet> packetList = new ArrayList<Packet>();
 		double countOfNewPackets = this.size/maxSize;
 		if(countOfNewPackets>1){
+			System.out.println("Rozděluji packet"+this.ID+" na " + countOfNewPackets + " packetů");
 			for (int i = 0; i < countOfNewPackets; i++) {
 				packetList.add(new Packet(id, (this.size/countOfNewPackets), this.path));
 				id++;
@@ -64,23 +65,36 @@ public class Packet {
 	
 	public void moveNext() {
 		if(path.get(pathIndex+1).isOccupied()){
-			Router collisionRouter = path.get(pathIndex+1);
-			System.out.println("|||||||||||KOKOTI!: "+ actualRouter.getName() + " " + collisionRouter.getPacket().getNextRouter().getName()+"||||||||||");
-			if(this.actualRouter.getName().equals(collisionRouter.getPacket().getNextRouter().getName())){
-				this.actualRouter = nextRouter;
-				this.actualRouter.setPacket(collisionRouter.getPacket());
-				collisionRouter.setPacket(this);
-				collisionRouter = path.get(pathIndex);
-			}
+				if(this.actualRouter.equals(path.get(pathIndex+1).getPacket().getNextRouter())&&(this.nextRouter.equals(this.nextRouter.getPacket().getActualRouter()))) {
+					
+					System.out.print("( Switching packets "+this.getID()+"-"+this.nextRouter.getPacket().getID()+" Packet"+this.nextRouter.getPacket().getID()+ ": " + this.nextRouter.getPacket().getActualRouter().getName() + " -> "+ this.getActualRouter().getName()+" ) -> ");
+					
+					Packet packet = this.nextRouter.getPacket();
+					
+					this.nextRouter.getPacket().setPathIndex(this.nextRouter.getPacket().getPathIndex()+1);
+					this.nextRouter.getPacket().setNextRouter(this.nextRouter.getPacket().getPath().get(this.nextRouter.getPacket().getPathIndex()+1));
+					this.nextRouter.getPacket().setActualRouter(this.nextRouter.getPacket().getPath().get(this.nextRouter.getPacket().getPathIndex()));
+					
+					this.actualRouter.setPacket(packet);
+					this.actualRouter = this.nextRouter;
+					this.pathIndex = this.pathIndex+1;
+					this.nextRouter = this.path.get(this.pathIndex+1);
+					
+					this.actualRouter.setPacket(this);
+		}
 			else return;
-		}else {
+		}
+		else {
 		actualRouter.setPacket(null);
-		actualRouter.setOccupied(false);
 		pathIndex++;
 		actualRouter = path.get(pathIndex);
-		actualRouter.setOccupied(true);
+		//actualRouter.setOccupied(true);
 		actualRouter.setPacket(this);
-		nextRouter = path.get(pathIndex+1);
+		try {
+			nextRouter = path.get(pathIndex+1);
+		} catch (Exception e) {
+		}
+		
 		
 		}
 	}
