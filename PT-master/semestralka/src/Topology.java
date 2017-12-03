@@ -9,17 +9,17 @@ import java.util.*;
  */
 public class Topology {
 	/** List pro ukládání uzlů */
-	List<Link> linkList;
+	private final List<Link> LINK_LIST;
 	
 	/**List pro ukládání routerů */
-	List<Router> routerList;
+	private final List<Router> ROUTER_LIST;
 	
 	/**
 	 * Konstruktor pro vytvoření instace
 	 */
 	public Topology(){
-		linkList = new ArrayList<>();
-		routerList = new ArrayList<>();
+		LINK_LIST = new ArrayList<>();
+		ROUTER_LIST = new ArrayList<>();
 	}
 	
 	/**
@@ -27,7 +27,7 @@ public class Topology {
 	 * @param link spoj mezi routery
 	 */
 	public void add_link(Link link){
-		linkList.add(link);
+		LINK_LIST.add(link);
 	}
 	
 	/**
@@ -37,7 +37,7 @@ public class Topology {
 	 * @return link
 	 */
 	public Link getLink(Router r1, Router r2) {
-		for (Link link : linkList) {
+		for (Link link : LINK_LIST) {
 			if ((link.getFromRouter().getName().equals(r1.getName()) )&&(link.getToRouter().getName().equals(r2.getName()))) {
 				return link;
 			}
@@ -50,9 +50,9 @@ public class Topology {
 	 * @param router router
 	 */
 	public void add_router(Router router){
-		if(!routerList.stream().anyMatch(dto -> dto.getName().equals(router.getName()))) {
+		if(!ROUTER_LIST.stream().anyMatch(dto -> dto.getName().equals(router.getName()))) {
 			
-			routerList.add(router);
+			ROUTER_LIST.add(router);
 			
 		}	
 	}
@@ -64,7 +64,7 @@ public class Topology {
 	 */
 	public Router checkRouterName(Router router) {
 		Router find = null;
-		if(routerList.stream().anyMatch(dto -> dto.getName().equals(router.getName()))) {		
+		if(ROUTER_LIST.stream().anyMatch(dto -> dto.getName().equals(router.getName()))) {		
 			find = getRouter(router.getName());
 		}
 		
@@ -78,7 +78,7 @@ public class Topology {
 	 */
 	public Router getRouter(String name) { 
 		
-		for (Router router : routerList) {
+		for (Router router : ROUTER_LIST) {
 	        if (router.getName().equals(name)){
 	            return router;
 	        }
@@ -93,7 +93,7 @@ public class Topology {
 	 * @return seznam routerů
 	 */
 	public List<Router> getRouterList(){
-		return this.routerList;
+		return this.ROUTER_LIST;
 	}
 	
 	/**
@@ -101,7 +101,7 @@ public class Topology {
 	 * @return seznam linků
 	 */
 	public List<Link> getLinkList(){
-		return this.linkList;
+		return this.LINK_LIST;
 	}
 	
 	/**
@@ -109,7 +109,7 @@ public class Topology {
 	 * Kvůli hledání nejoptimálnější cesty
 	 */
 	public void clearFindingInfo() {
-		for (Router router : routerList) {
+		for (Router router : ROUTER_LIST) {
 			router.setPrevious(null);
 			router.setMinDistance(Double.POSITIVE_INFINITY);
 		}

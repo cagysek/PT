@@ -103,7 +103,8 @@ public class Simulate {
 				log += packet.getActualRouter()+" -> ";
 				
 				//if(lastPacket)
-				packet.moveNext();
+				String logFromPacket = packet.moveNext();
+				log += logFromPacket;
 				
 				
 				

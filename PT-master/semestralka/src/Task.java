@@ -9,16 +9,16 @@ import java.time.*;
  */
 public class Task {
 	/** čas zadání úkolu */
-	private final LocalTime time;
+	private final LocalTime TIME;
 	
 	/** z routeru */
-	private final Router fromRouter;
+	private final Router FROM_ROUTER;
 	
 	/** do routeru */
-	private final Router toRouter;
+	private final Router TO_ROUTER;
 	
 	/** velikost dat */
-	private final int size;
+	private final int SIZE;
 	
 	/**
 	 * Vytvoření přepravky
@@ -28,16 +28,16 @@ public class Task {
 	 * @param size velikost
 	 */
 	public Task(LocalTime time, Router fromRouter, Router toRouter, int size){
-		this.time = time;
-		this.fromRouter = fromRouter;
-		this.toRouter = toRouter;
-		this.size = size;
+		this.TIME = time;
+		this.FROM_ROUTER = fromRouter;
+		this.TO_ROUTER = toRouter;
+		this.SIZE = size;
 		
 	}
 	
 	@Override
 	public String toString(){
-		return "time: "+time+" fromRouter: "+fromRouter.getName()+ " toRouter: "+toRouter.getName()+" Size: "+size;
+		return "time: "+TIME+" fromRouter: "+FROM_ROUTER.getName()+ " toRouter: "+TO_ROUTER.getName()+" Size: "+SIZE;
 				
 	}
 
@@ -46,7 +46,7 @@ public class Task {
 	 * @return the time
 	 */
 	public LocalTime getTime() {
-		return time;
+		return TIME;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class Task {
 	 * @return the fromRouter
 	 */
 	public Router getFromRouter() {
-		return fromRouter;
+		return FROM_ROUTER;
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class Task {
 	 * @return the toRouter 
 	 */
 	public Router getToRouter() {
-		return toRouter;
+		return TO_ROUTER;
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class Task {
 	 * @return the size
 	 */
 	public int getSize() {
-		return size;
+		return SIZE;
 	}
 	
 	

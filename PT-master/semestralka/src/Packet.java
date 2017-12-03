@@ -114,8 +114,10 @@ public class Packet {
 	/**
 	 * Metoda pro posunutí packetu o jeden krok
 	 * V případě, že je router obsazený, nepošle se
+	 * @return log k zapsání do souboru
 	 */
-	public void moveNext() {
+	public String moveNext() {
+		String log = "";
 		if(path.get(pathIndex+1).isOccupied()){
 				if(this.actualRouter.equals(path.get(pathIndex+1).getPacket().getNextRouter())&&(this.nextRouter.equals(this.nextRouter.getPacket().getActualRouter()))) {
 					
@@ -123,6 +125,11 @@ public class Packet {
 															+" Packet"+this.nextRouter.getPacket().getID()+ ": " 
 															+ this.nextRouter.getPacket().getActualRouter().getName() + " -> "
 															+ this.getActualRouter().getName()+" ) -> ");
+					
+					log += "( Switching packets "+this.getID()+"-"+this.nextRouter.getPacket().getID()
+							+" Packet"+this.nextRouter.getPacket().getID()+ ": " 
+							+ this.nextRouter.getPacket().getActualRouter().getName() + " -> "
+							+ this.getActualRouter().getName()+" ) -> ";
 					
 					Packet packet = this.nextRouter.getPacket();
 					
@@ -136,9 +143,10 @@ public class Packet {
 					this.nextRouter = this.path.get(this.pathIndex+1);
 					
 					this.actualRouter.setPacket(this);
+					return log;
 		}
 			else {
-				return;
+				return log;
 			}
 		}
 		else {
@@ -149,7 +157,8 @@ public class Packet {
 			actualRouter.setPacket(this);
 			if(!actualRouter.getName().equals("targetUser")) {
 				nextRouter = path.get(pathIndex+1);
-			} 		
+			} 
+			return log;
 		}
 	}
 	
@@ -187,8 +196,7 @@ public class Packet {
 	 */
 	@Override
 	public String toString() {
-		return "Packet" +this.ID+" [size=" + size + ", path=" + path + ", actualRouter=" + actualRouter + ", pathIndex=" + pathIndex
-				+ "path size: "+(path.size()-1)+"]\n";
+		return "Packet" +this.ID+" [size=" + size + ", path=" + path + ", actualRouter=" + actualRouter + "\n";
 	}
 
 	/**

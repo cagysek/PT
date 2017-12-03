@@ -8,10 +8,10 @@
  */
 public class SmartStack {
 	/** Vytvoření pole pro ukládání hodnot */
-	  Packet[] data;
+	  private Packet[] data;
 	  
 	  /** Držení hodnoty volného indexu */
-	  int freeIndex;
+	  private int freeIndex;
 		
 	  /**
 	   * Metoda pro vkládání hodnot do zásobníku

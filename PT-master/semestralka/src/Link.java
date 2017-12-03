@@ -104,7 +104,7 @@ public class Link {
 	 * @param bandwidth šířka linky
 	 */
 	public double getWeight(double bandwidth) {
-		return ((bandwidth) - (this.bandwidth*this.reliability));
+		return ((100) - (this.bandwidth*this.reliability));
 	}
 	
 }
