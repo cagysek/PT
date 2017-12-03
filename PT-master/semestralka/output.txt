@@ -1,0 +1,146 @@
+[Packet0 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet1 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet2 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet3 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+]
+sourceUser -> A
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+=============================================
+[Packet0 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=A, pathIndex=1path size: 5]
+, Packet1 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet2 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet3 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet4 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet5 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+]
+A -> B
+sourceUser -> A
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+sourceUser -> D
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+=============================================
+[Packet0 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=B, pathIndex=2path size: 5]
+, Packet1 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=A, pathIndex=1path size: 5]
+, Packet2 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet3 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet4 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=D, pathIndex=1path size: 5]
+, Packet5 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+]
+B -> C
+A -> B
+sourceUser -> A
+sourceUser -> sourceUser
+D -> C
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+=============================================
+[Packet0 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=D, pathIndex=4path size: 5]
+, Packet1 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=B, pathIndex=2path size: 5]
+, Packet2 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=A, pathIndex=1path size: 5]
+, Packet3 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet4 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=C, pathIndex=2path size: 5]
+, Packet5 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+]
+D -> targetUser
+END
+B -> C
+A -> B
+sourceUser -> sourceUser
+A -> targetUser
+END
+sourceUser -> D
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+=============================================
+[Packet1 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=C, pathIndex=3path size: 5]
+, Packet2 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=B, pathIndex=2path size: 5]
+, Packet3 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet5 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=D, pathIndex=1path size: 5]
+, Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+]
+C -> D
+B -> C
+sourceUser -> A
+B -> A
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+=============================================
+[Packet1 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=D, pathIndex=4path size: 5]
+, Packet2 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=C, pathIndex=3path size: 5]
+, Packet3 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=B, pathIndex=2path size: 5]
+, Packet5 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=A, pathIndex=4path size: 5]
+, Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+]
+D -> targetUser
+END
+C -> D
+B -> C
+A -> targetUser
+END
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+=============================================
+[Packet2 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=D, pathIndex=4path size: 5]
+, Packet3 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=C, pathIndex=3path size: 5]
+, Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+]
+D -> targetUser
+END
+C -> D
+sourceUser -> sourceUser
+sourceUser -> sourceUser
+=============================================
+[Packet3 [size=50.0, path=[sourceUser, A, B, C, D, targetUser], actualRouter=D, pathIndex=4path size: 5]
+, Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+]
+D -> targetUser
+END
+sourceUser -> D
+sourceUser -> sourceUser
+=============================================
+[Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=D, pathIndex=1path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=sourceUser, pathIndex=0path size: 5]
+]
+D -> C
+sourceUser -> D
+=============================================
+[Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=C, pathIndex=2path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=D, pathIndex=1path size: 5]
+]
+C -> B
+D -> C
+=============================================
+[Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=B, pathIndex=3path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=C, pathIndex=2path size: 5]
+]
+B -> A
+C -> B
+=============================================
+[Packet6 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=A, pathIndex=4path size: 5]
+, Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=B, pathIndex=3path size: 5]
+]
+A -> targetUser
+END
+B -> A
+=============================================
+[Packet7 [size=50.0, path=[sourceUser, D, C, B, A, targetUser], actualRouter=A, pathIndex=4path size: 5]
+]
+A -> targetUser
+END
+=============================================
